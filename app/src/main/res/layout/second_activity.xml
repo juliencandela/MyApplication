@@ -12,11 +12,13 @@
             android:text="@string/hello_world"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView"/>
-    <Button
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Le premier Bouton"
-            android:id="@+id/button1" android:layout_below="@+id/textView" android:layout_centerHorizontal="true"
-            android:layout_marginTop="68dp"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Deuxième page"
+            android:id="@+id/textView2"
+            android:layout_marginTop="63dp" android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
