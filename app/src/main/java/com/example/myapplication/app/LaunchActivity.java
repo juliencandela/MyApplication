@@ -24,6 +24,8 @@ public class LaunchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent monIntent = new Intent(LaunchActivity.this, SecondActivity.class);
+                monIntent.putExtra("Value1", "Ceci est la value 1");
+                monIntent.putExtra("Value2", "Ceci est la value 2");
                 startActivity(monIntent);
             }
         });

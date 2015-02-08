@@ -2,6 +2,7 @@ package com.example.myapplication.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 
@@ -14,6 +15,14 @@ public class SecondActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value1 = extras.getString("Value1");
+            if (value1 != null) {
+                Log.d("PutExtra", value1);
+            }
+        }
 
     }
 
