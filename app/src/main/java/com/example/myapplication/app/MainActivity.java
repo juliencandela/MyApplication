@@ -2,11 +2,14 @@ package com.example.myapplication.app;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    static final String TAG = "TestActivityCycle";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +26,32 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void onDestroy() {
+        Log.d(TAG, "On Destroy");
+        super.onDestroy();
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "On Pause");
+        super.onPause();
+    }
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    protected void onRestart() {
+        Log.d(TAG, "On Restart");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "On Resume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "On Start");
+        super.onStart();
     }
 }
