@@ -7,11 +7,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
-public class LaunchActivity extends Activity {
+public class LaunchActivityForResult extends Activity {
 
     static final String TAG = "TestActivityCycle";
+    private static final int REQUEST_CODE = 9999;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +26,21 @@ public class LaunchActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent monIntent = new Intent(LaunchActivity.this, SecondActivity.class);
-                monIntent.putExtra("Value1", "Ceci est la value 1");
-                monIntent.putExtra("Value2", "Ceci est la value 2");
-                startActivity(monIntent);
+                Intent monIntent = new Intent(LaunchActivityForResult.this, SecondActivityForResult.class);
+                startActivityForResult(monIntent, REQUEST_CODE);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            if (data.hasExtra("returnKey1")) {
+                Log.d("activityResult", data.getExtras().getString("returnKey1"));
+                Toast.makeText(this, data.getExtras().getString("returnKey1"), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
