@@ -9,39 +9,30 @@ import android.widget.Button;
 /**
  * Created by marie-helene on 09/02/15.
  */
-public class MainActivity extends Activity {
+public class ServiceActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.service_activity);
 
         Button btn1 = (Button) findViewById(R.id.button1);
         Button btn2 = (Button) findViewById(R.id.button2);
-        Button btn3 = (Button) findViewById(R.id.button3);
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, TestActivityArrayAdapterListView.class);
-                startActivity(myIntent);
+                Intent service = new Intent(ServiceActivity.this, UpdaterService.class);
+                startService(service);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent myIntent = new Intent(MainActivity.this, LaunchActivityForResult.class);
-                startActivity(myIntent);
-            }
-        });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent myIntent = new Intent(MainActivity.this, ContentAdapter.class);
-                startActivity(myIntent);
+                Intent service = new Intent(ServiceActivity.this, UpdaterService.class);
+                stopService(service);
             }
         });
 
