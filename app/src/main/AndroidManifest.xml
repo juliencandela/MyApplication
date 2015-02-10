@@ -27,6 +27,7 @@
         <activity android:name=".ContentAdapter"/>
         <activity android:name=".TestActivityArrayAdapterListView"/>
         <activity android:name=".TestActivitySimpleAdapterListView"/>
+        <activity android:name=".LivreActivity"/>
 
         <!-- Services -->
         <service android:name=".UpdaterService"/>

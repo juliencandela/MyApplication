@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, TestActivitySimpleAdapterListView.class);
+                Intent myIntent = new Intent(MainActivity.this, LivreActivity.class);
                 startActivity(myIntent);
             }
         });
