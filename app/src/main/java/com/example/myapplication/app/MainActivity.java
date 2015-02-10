@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
         Button btn1 = (Button) findViewById(R.id.button1);
         Button btn2 = (Button) findViewById(R.id.button2);
         Button btn3 = (Button) findViewById(R.id.button3);
+        Button btn4 = (Button) findViewById(R.id.button4);
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +42,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(MainActivity.this, ContentAdapter.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, TestActivitySimpleAdapterListView.class);
                 startActivity(myIntent);
             }
         });
